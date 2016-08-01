@@ -10,6 +10,11 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build
 	end
 
+	
+	def show 
+		@comments = Comment.where(post_id: @post)
+	end
+
 	def create
 		@post = current_user.posts.build(post_params)
 
